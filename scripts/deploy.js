@@ -1,19 +1,11 @@
 async function main() {
-  const Box = await ethers.getContractFactory("Box")
-  console.log("Deploying Box...")
+  const ShaiToday = await ethers.getContractFactory("ShaiToday")
+  console.log("Deploying ShaiToday...")
 
-  const box = await Box.deploy()
-  await box.deployed()
+  const shaiToday = await ShaiToday.deploy()
+  await shaiToday.deployed()
 
-  console.log(`Box deployed to ${box.address}`)
-
-  const storedResult = await box.store(42)
-  console.log(`box.store(42) succeeded!`)
-
-  const retrievedResult = await box.retrieve()
-  console.log(`box.retrieve() succeeded!`)
-
-  console.log(`retrievedResult: ${JSON.stringify(retrievedResult)}`)
+  console.log(`ShaiToday deployed to ${shaiToday.address}`)
 }
 
 main()
