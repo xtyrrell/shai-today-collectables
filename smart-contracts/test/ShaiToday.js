@@ -44,6 +44,24 @@ describe("ShaiToday contract", () => {
     })
   })
 
+  describe("Transferring", () => {
+    it("should allow an item's owner to transfer that item to another address", async () => {
+      await shaiToday.connect(owner).safeMint(owner.address, itemId)
+
+      await shaiToday.safeTransferFrom()
+  
+      const itemOwner = (await shaiToday.connect(owner).ownerOf(itemId)).toString()
+      return expect(itemOwner).to.equal(owner.address)
+    })
+
+    it("should allow an item's owner to transfer that item to another address", async () => {
+      await shaiToday.connect(owner).safeMint(owner.address, itemId)
+  
+      const itemOwner = (await shaiToday.connect(owner).ownerOf(itemId)).toString()
+      return expect(itemOwner).to.equal(owner.address)
+    })
+  })
+
   describe("Metadata", () => {
     it("should return the correct token URI", async () => {
       await shaiToday.connect(owner).safeMint(owner.address, itemId)
