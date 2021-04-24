@@ -1,9 +1,7 @@
-# Ethereum Box
-This is a simple but test-complete implementation of a trustless, decentralised way to store a single number.
+# The ShaiToday Collectables
+An ERC721 smart contract for Shai to mint and sell his daily selfies.
 
-It's a simple example of building on the Ethereum blockchain.
-
-The Box smart contract comes from excellent [OpenZeppelin's Deveoping Smart Contracts guide](https://docs.openzeppelin.com/learn/developing-smart-contracts).
+There is basic test coverage (see `test/ShaiToday.js`).
 
 ## Get started
 
@@ -15,8 +13,8 @@ The Box smart contract comes from excellent [OpenZeppelin's Deveoping Smart Cont
 
 1. Clone and setup this project.
   ```sh
-  git clone https://github.com/xtyrrell/hardhat-console-error.git
-  cd hardhat-console-error
+  git clone https://github.com/xtyrrell/shai-today-collectables.git
+  cd shai-today-collectables
   npm i
   ```
 
@@ -30,4 +28,4 @@ The Box smart contract comes from excellent [OpenZeppelin's Deveoping Smart Cont
   npx hardhat test
   ```
 
-4. Hack on `Box.sol` or create more contracts!
+4. Hack on `ShaiToday.sol` or create more contracts!
