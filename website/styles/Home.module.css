@@ -5,9 +5,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  max-width: 1400px;
+  margin: auto;
 }
 
-.main {
+.todaysPhoto {
   padding: 5rem 0;
   flex: 1;
   display: flex;

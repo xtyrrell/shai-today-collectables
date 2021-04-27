@@ -1,9 +1,35 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 import { useEffect, useState } from "react";
 import * as dotenv from "dotenv"
+import styles from "../styles/Home.module.css";
+import PhotoGrid from "../components/photo-grid/photo-grid"
 
-export default function Home({ photos }) {
+import { todayFormatted } from "../utils/date"
+
+console.log(todayFormatted())
+
+export default function Home({ photos: photosData }) {
+  console.log(photosData)
+
+  // Map photos to an object with more standard key names
+  // so we're less tightly-coupled to airtable
+  const photos = photosData.map(photoData => ({
+    date: photoData.fields.Date,
+    src: {
+      small: photoData.fields.Photo[0].thumbnails.small.url, 
+      large: photoData.fields.Photo[0].thumbnails.large.url,
+      full: photoData.fields.Photo[0].url,
+    },
+    ...photoData
+  }))
+
+  const currentDate = new Date();
+
+  const currentDayOfMonth = currentDate.getDate();
+  const currentMonth = currentDate.getMonth(); // Be careful! January is 0, not 1
+  const currentYear = currentDate.getFullYear();
+  const todayDateString = currentDayOfMonth + "-" + (currentMonth + 1) + "-" + currentYear;
+
   const mostRecentPhoto = photos[photos.length - 1];
   const [currentPhoto, setCurrentPhoto] = useState({
     index: photos.length - 1,
@@ -50,19 +76,26 @@ export default function Home({ photos }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>This is shai today.</h1>
-        <h2>{currentPhoto.date} </h2>
-        <img src={currentPhoto.imageUrl}></img>
-        <div className="navigation">
-          <button onClick={goToPreviousPhoto} disabled={!hasPrevious()}>
-            <h3> &larr; previous day</h3>
-          </button>
+      <main>
+        <section className={styles.todaysPhoto}>
+          <h1 className={styles.title}>This is shai today.</h1>
+          <h2>{currentPhoto.date}</h2>
+          <img src={currentPhoto.imageUrl}></img>
+          <div className="navigation">
+            <button onClick={goToPreviousPhoto} disabled={!hasPrevious()}>
+              <h3>&larr; previous day</h3>
+            </button>
 
-          <button onClick={goToNextPhoto} disabled={!hasNext()}>
-            <h3>next day &rarr;</h3>
-          </button>
-        </div>
+            <button onClick={goToNextPhoto} disabled={!hasNext()}>
+              <h3>next day &rarr;</h3>
+            </button>
+          </div>
+        </section>
+
+        <section>
+          <h1>Previously</h1>
+          <PhotoGrid photos={photos.filter(photo => photo.date !== todayFormatted())}/>
+        </section>
       </main>
 
       <footer className={styles.footer}>
