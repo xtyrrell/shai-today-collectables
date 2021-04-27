@@ -21,13 +21,6 @@ export default function Home({ photos: photosData }) {
     ...photoData
   }))
 
-  const currentDate = new Date();
-
-  const currentDayOfMonth = currentDate.getDate();
-  const currentMonth = currentDate.getMonth(); // Be careful! January is 0, not 1
-  const currentYear = currentDate.getFullYear();
-  const todayDateString = currentDayOfMonth + "-" + (currentMonth + 1) + "-" + currentYear;
-
   const mostRecentPhoto = photos[photos.length - 1];
   const [currentPhoto, setCurrentPhoto] = useState({
     index: photos.length - 1,
