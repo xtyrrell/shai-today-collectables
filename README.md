@@ -33,5 +33,11 @@ Let's first get the contract to be able to tell us who owns each of the photos p
 in the app frontend underneath each photo.
 
 - [x] Build a gallery view which shows all photos (filter by tags coming later)
-- [ ] Test the ERC721 item ownership in the contract (not minting yet)
-- [ ] Using ethers, pull in the data on the owner of each photo when displaying the frontend
+- [ ] Use web3-react to allow users to connect their MetaMask accounts https://codesandbox.io/s/web3-react-simplified-kj7n3?file=/src/index.js (other wallet integrations later)
+  - [ ] Simplify that example to only have what we need for MetaMask integration
+  - [ ] Copy and paste it in
+  - [ ] Test the provider and `useX` pattern
+  - [ ] When that's working, display a connect button with the connection status in a position: sticky bar with `top: 0` floating between the carousel at the top and the gallery below
+  - [ ] Display the connected address and network name in white monospace text (Kovan etc) with a green background when connected, otherwise a greyish background with the connect button and explainer text
+- [ ] Make super simple contract with a public mapping of ids to owners so we can test displaying owners from the contract underneath gallery photos
+- [ ] Make it more ERC721 or custom :eyes:
