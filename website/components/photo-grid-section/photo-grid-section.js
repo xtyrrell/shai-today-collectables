@@ -24,7 +24,7 @@ const PhotoGridSection = ({ photos }) => {
 
   return (
     <section>
-      <h1>Previously</h1>
+      <h1>Previously on shai.today</h1>
       {/* <p>
         Coming soon: All of these selfies of Shai will be up for sale as ERC721 collectable NFTs. The price of each
         is dynamically determined by the underlying contract's bonding curve.
