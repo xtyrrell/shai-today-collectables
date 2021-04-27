@@ -25,7 +25,7 @@ export default function Home({ photos: photosData }) {
   const [currentPhoto, setCurrentPhoto] = useState({
     index: photos.length - 1,
     date: mostRecentPhoto.fields["Date"],
-    imageUrl: mostRecentPhoto.fields["Photo"][0]["url"],
+    imageUrl: mostRecentPhoto.src.large,
   });
 
   const goToPreviousPhoto = () => {
@@ -35,7 +35,7 @@ export default function Home({ photos: photosData }) {
     setCurrentPhoto({
       index: previousIndex,
       date: previousPhoto.fields["Date"],
-      imageUrl: previousPhoto.fields["Photo"][0]["url"],
+      imageUrl: previousPhoto.src.large,
     });
   };
 
@@ -45,7 +45,7 @@ export default function Home({ photos: photosData }) {
     setCurrentPhoto({
       index: nextIndex,
       date: nextPhoto.fields["Date"],
-      imageUrl: nextPhoto.fields["Photo"][0]["url"],
+      imageUrl: nextPhoto.src.large,
     });
   };
 
