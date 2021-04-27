@@ -1,12 +1,9 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import * as dotenv from "dotenv"
 import styles from "../styles/Home.module.css";
-import PhotoGrid from "../components/photo-grid/photo-grid"
+import PhotoGridSection from "../components/photo-grid-section/photo-grid-section"
 
-import { todayFormatted } from "../utils/date"
-
-console.log(todayFormatted())
 
 export default function Home({ photos: photosData }) {
   console.log(photosData)
@@ -20,6 +17,7 @@ export default function Home({ photos: photosData }) {
       large: photoData.fields.Photo[0].thumbnails.large.url,
       full: photoData.fields.Photo[0].url,
     },
+    tags: photoData.fields.tags,
     ...photoData
   }))
 
@@ -92,10 +90,7 @@ export default function Home({ photos: photosData }) {
           </div>
         </section>
 
-        <section>
-          <h1>Previously</h1>
-          <PhotoGrid photos={photos.filter(photo => photo.date !== todayFormatted())}/>
-        </section>
+        <PhotoGridSection photos={photos} />
       </main>
 
       <footer className={styles.footer}>

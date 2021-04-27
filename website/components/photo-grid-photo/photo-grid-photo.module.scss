@@ -1,8 +1,32 @@
 .gridPhoto {
   width: 200px;
+  border: 1px solid #BFCEC0;
 
   img {
     max-width: 100%;
   }
 }
 
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.tag {
+  color: rgb(46, 51, 59);
+  background-color: #BFCEC0;
+  // font-family: 'Courier New', Courier, monospace;
+  padding: 0.25rem;
+  font-weight: bold;
+  
+  border-radius: 5px;
+}
+
+.date {
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+  color: rgb(46, 51, 59);
+  font-weight: bold;
+}
