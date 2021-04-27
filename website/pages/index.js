@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 import * as dotenv from "dotenv"
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.scss";
 import PhotoGridSection from "../components/photo-grid-section/photo-grid-section"
 
 
@@ -71,8 +71,8 @@ export default function Home({ photos: photosData }) {
         <section className={styles.todaysPhoto}>
           <h1 className={styles.title}>This is shai today.</h1>
           <h2>{currentPhoto.date}</h2>
-          <img src={currentPhoto.imageUrl}></img>
-          <div className="navigation">
+          <img className={styles.currentPhoto} src={currentPhoto.imageUrl}></img>
+          <div className={styles.carouselButtons}>
             <button onClick={goToPreviousPhoto} disabled={!hasPrevious()}>
               <h3>&larr; previous day</h3>
             </button>
@@ -89,32 +89,6 @@ export default function Home({ photos: photosData }) {
       <footer className={styles.footer}>
         Made in Cape Town with 🦀 and 🍞.
       </footer>
-      <style jsx>{`
-        img {
-          margin-top: 20px;
-          height: 400px;
-        }
-
-        button {
-          background-color: transparent;
-          border: none;
-        }
-
-        button:hover:not(:disabled) {
-          cursor: pointer;
-          color: #0070f3;
-        }
-
-        button:focus {
-          outline: none;
-        }
-
-        .navigation {
-          display: flex;
-          justify-content: space-between;
-          width: 100%;
-        }
-      `}</style>
     </div>
   );
 }
