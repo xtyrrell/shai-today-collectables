@@ -100,7 +100,7 @@ export async function getServerSideProps() {
   // You can use any data fetching library
 
   var data = await fetch(
-    `https://api.airtable.com/v0/appOhLn2wS6Xj9XNQ/Table%201?api_key=${process.env.AIRTABLE_API_KEY}`
+    `https://api.airtable.com/v0/appOhLn2wS6Xj9XNQ/Table%201?api_key=${process.env.AIRTABLE_API_KEY}&sort%5B0%5D%5Bfield%5D=Date`
   );
 
   var data = await data.json();
