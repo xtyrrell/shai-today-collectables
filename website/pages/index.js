@@ -17,7 +17,7 @@ export default function Home({ photos: photosData }) {
       large: photoData.fields.Photo[0].thumbnails.large.url,
       full: photoData.fields.Photo[0].url,
     },
-    tags: photoData.fields.tags,
+    tags: photoData.fields.tags ?? [],
     ...photoData
   }))
 
